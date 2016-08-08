@@ -1,0 +1,227 @@
+// Breakpoints
+$medium-screen: 600px;
+$large-screen: 900px;
+$max-width:1200px;
+
+// Typography
+$museo: "museo-sans", Helvetica, Arial, sans-serif;
+$proxima: "proxima-nova", Helvetica, Arial, sans-serif;
+$base-font-family: $proxima;
+$heading-font-family: $proxima;
+$abril: "abril-display",sans-serif;
+$lemonde: "le-monde-courrier-std-2";;
+
+$icons: 'simple-line-icons';
+
+// Font Sizes
+$base-font-size:14px;
+
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+//$base: #4a4a4a;
+$base: #635C51;
+$action-color: rgba(236,64,23,100);
+$action-color-hover: rgba(236,64,23,0.8);
+$base-border-color: rgba(220,220,220,100);
+$border: #979797;
+$brown: #4d473b;
+$page: #F1F0EC;
+$stripe: #dcdcdc;
+
+// Font Colors
+$base-font-color: $base;
+$action-color: $action-color;
+
+// Border
+$base-border-color: $base-border-color;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color(#979797, $lightness: -5%, $alpha: -0.3);
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;
+
+// Sizes
+$logo-size: 233px 89px;
+$icon-size: 57px 56px;
+$auto: auto auto;
+
+// Media Queries
+$tablet:800px;
+
+button {
+  appearance: none;
+  background-color: $action-color;
+  border: 0;
+  border-radius: $base-border-radius;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0.55em 0;
+  text-decoration: none;
+  transition: background-color $base-duration $base-timing;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: shade($action-color, 20%);
+    color: #fff;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      background-color: $action-color;
+    }
+  }
+}
+form {
+	position:relative;max-width:500px;overflow:hidden;display:flex;margin-bottom:10px;
+	div.wrap {border-radius:5px;overflow:hidden;}
+	input#fieldEmail {
+		float:left;border:none;padding:9px 10px;border-radius:5px 0px 0 5px;
+		width:70%;margin:0;position:relative;z-index:5;
+	}	
+	button, input[type="submit"] {width:30%;float:left;top:-1px;}
+}
+button[type="submit"], input[type="submit"] {
+	text-indent:-9999px;position:relative;z-index:2;border:none;border-radius:0px 5px 5px 0px;
+	
+	&:before, &:after {content:'';position:absolute;font-family:$proxima;font-size:25px;
+		top:0;padding:0.25em 1.5em 0.15em;width:100%;text-indent:0;left:0;transition: all 0.4s ease-in-out;min-height:35px;
+	}
+	&:before {background:$action-color url(../img/arrow.png) no-repeat center center;color:#fff;}
+	&:after {left:101%;background:#33253f url(../img/arrow.png) no-repeat center center;color:#fff;}
+	
+	&:hover {background:#33253f;
+		&:before, &:after {margin-left:-101%;}
+	}
+}
+
+fieldset {
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  font-weight: 600;
+  margin-bottom: $small-spacing / 2;
+  padding: 0;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: $small-spacing / 2;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+}
+
+input,
+select[multiple] {
+  background-color: $base-background-color;
+  border:1px solid #979797;
+  border-radius: $base-border-radius;
+  box-shadow: $form-box-shadow;
+  box-sizing: border-box;
+  margin-bottom: $small-spacing;
+  padding: 0.9em 0.6em;
+  transition: border-color $base-duration $base-timing;
+  width: 100%;color:$base;
+  font-size:0.95em;text-transform:uppercase;
+  font-weight:400;
+
+  &:hover {
+    border-color: shade($base-border-color, 20%);
+  }
+
+  &:focus {
+    border-color:transparent;
+    box-shadow: $form-box-shadow-focus;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: shade($base-background-color, 5%);
+    cursor: not-allowed;
+
+    &:hover {
+      border: $base-border;
+    }
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+[type="search"] {
+  appearance: none;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  display: inline;
+  margin-right: $small-spacing / 2;
+}
+
+[type="file"] {
+  margin-bottom: $small-spacing;
+  width: 100%;
+}
+
+select {
+  margin-bottom: $small-spacing;
+  max-width: 100%;
+  width: auto;
+}
+input.search-field {
+  -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0,0,0,0.5);
+          box-shadow: inset 0px 1px 3px 0px rgba(0,0,0,0.5);
+    @media screen and (min-width:600px) {
+	    max-width:300px;
+    }
+}
+#subForm {
+	margin-top:5px;
+}
+.textwidget {
+	.button {
+		@media screen and (min-width:600px) {
+			max-width:300px;
+		}
+	}
+}
